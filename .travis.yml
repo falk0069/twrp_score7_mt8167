@@ -38,7 +38,7 @@ before_script:
   # - tar --zstd -xf MinimalOmniRecovery-twrp-*.*-norepo-2020*.tzst.aa --directory $HOME/twrp/ && rm MinimalOmniRecovery*.tzst.*
 script:
   # Replace your ${_USERNAME_}, ${_REPO_SLUG_}, ${_VENDORNAME_}, ${_CODENAME_}
-  - cd $HOME/twrp/ && git clone https://github.com/${_USERNAME_}/${_REPO_SLUG_}.git device/${_VENDORNAME_}/${_CODENAME_}
+  - cd $HOME/twrp/ && git clone https://github.com/falk0069/twrp_score7_mt8167.git device/alps/tb8167p3_bsp
   - rm -rf bootable/recovery && git clone https://github.com/omnirom/android_bootable_recovery -b android-9.0 --depth 1 bootable/recovery
   - |
     docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/builder/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder bash << EOF
@@ -46,13 +46,13 @@ script:
     source build/envsetup.sh
     # Choose build flavor as "eng" or "userdebug"
     BUILD_FLAVOR="eng"
-    lunch omni_${_CODENAME_}-${BUILD_FLAVOR}
+    lunch omni_tb8167p3_bsp-${BUILD_FLAVOR}
     make -j$(nproc --all) recoveryimage
     exit
     EOF
 after_success:
   - export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
-  - cp $HOME/twrp/out/target/product/${_CODENAME_}/recovery.img $HOME/twrp/TWRP-$version-${_CODENAME_}-$(date +"%Y%m%d")-Unofficial.img
+  - cp $HOME/twrp/out/target/product/tb8167p3_bsp/recovery.img $HOME/twrp/TWRP-$version-tb8167p3_bsp-$(date +"%Y%m%d")-Unofficial.img
   - cd $HOME/twrp/
   # Optional: You might need to switch from https://transfer.sh to https://file.io
   # - curl -s --upload-file TWRP-$version-${_CODENAME_}-$(date +"%Y%m%d")-Unofficial.img https://transfer.sh/ && echo ""
@@ -65,7 +65,7 @@ deploy:
   file: $HOME/twrp/*.img
   on:
     tags: false # Set "true" to deploy only on successful tagged commit builds
-    repo: ${_USERNAME_}/${_REPO_SLUG_} # Optional: If you want to deploy on different repository
+    repo: falk0069/twrp_score7_mt8167 # Optional: If you want to deploy on different repository
     branch: master # Optional: Needs to be exact as the config branch
 branches:
   only:
