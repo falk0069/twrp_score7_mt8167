@@ -46,7 +46,7 @@ script:
     source build/envsetup.sh
     # Choose build flavor as "eng" or "userdebug"
     BUILD_FLAVOR="eng"
-    lunch omni_tb8167p3_bsp-${BUILD_FLAVOR}
+    lunch omni_tb8167p3_bsp-eng
     make -j$(nproc --all) recoveryimage
     exit
     EOF
