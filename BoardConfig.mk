@@ -68,37 +68,21 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x03f88000 --tags_offset 0x0df88000
 #TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/recovery.fstab
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 
-TARGET_BOARD_SUFFIX := _64                    # Remove if the device is 32-bit
-TARGET_USES_64_BIT_BINDER := true             # Remove if the device is 32-bit
+#TARGET_BOARD_SUFFIX := _64                    # Remove if the device is 32-bit
+#TARGET_USES_64_BIT_BINDER := true             # Remove if the device is 32-bit
 
 # Architecture
 # According to the device's architecture (64-bit or 32-bit)
-ifeq ($(TARGET_IS_64_BIT),true)
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic             # Change the value to "generic" if build fails suddenly due to arch error
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic         # Change the value to "generic" if build fails suddenly due to arch error
-TARGET_CPU_ABI_LIST_64_BIT := $(TARGET_CPU_ABI)
-TARGET_CPU_ABI_LIST_32_BIT := $(TARGET_2ND_CPU_ABI),$(TARGET_2ND_CPU_ABI2)
-TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI_LIST_64_BIT),$(TARGET_CPU_ABI_LIST_32_BIT)
-else
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := generic              # Change the value to "generic" if build fails suddenly due to arch error
-#TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI),$(TARGET_CPU_ABI2)
-endif
+TARGET_CPU_VARIANT := cortex-a7              # Change the value to "generic" if build fails suddenly due to arch error
+TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI),$(TARGET_CPU_ABI2)
 
 #extra settings
 ALLOW_MISSING_DEPENDENCIES := true
-TARGET_CPU_VARIANT_RUNTIME := generic
+#TARGET_CPU_VARIANT_RUNTIME := generic
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_KERNEL_CONFIG := tb8167p3_bsp_defconfig
 TARGET_KERNEL_SOURCE := kernel/alps/tb8167p3_bsp
