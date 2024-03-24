@@ -1,8 +1,10 @@
-# twrp_score7_mt8167
-Trying to create a twrp device tree
+# Android device tree for alps tb8167p3_bsp (tb8167p3_bsp)
 
-Following steps from this github site:
-https://gist.github.com/rokibhasansagar/15c8e728d94a6bd35a687aac73ef79a5
-
-Hoping to make a TWRP recovery for a Score 7 MT8167 tablet
-
+```
+#
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+```
