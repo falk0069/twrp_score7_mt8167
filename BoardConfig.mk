@@ -65,7 +65,8 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x03f88000 --tags_offset 0x0df88000
 
 # Set FSTAB
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/recovery.fstab
+#TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 
 TARGET_BOARD_SUFFIX := _64                    # Remove if the device is 32-bit
 TARGET_USES_64_BIT_BINDER := true             # Remove if the device is 32-bit
@@ -92,5 +93,13 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic              # Change the value to "generic" if build fails suddenly due to arch error
-TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI),$(TARGET_CPU_ABI2)
+#TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI),$(TARGET_CPU_ABI2)
 endif
+
+#extra settings
+ALLOW_MISSING_DEPENDENCIES := true
+TARGET_CPU_VARIANT_RUNTIME := generic
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_KERNEL_CONFIG := tb8167p3_bsp_defconfig
+TARGET_KERNEL_SOURCE := kernel/alps/tb8167p3_bsp
+
