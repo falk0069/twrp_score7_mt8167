@@ -4,7 +4,7 @@ My first attempt compiling TWRP for a Android device.  It is specifically for a 
 
 v1.0.0 does not have the touchscreen working.  You need a microUSB mouse or an OTG adapter to use your standard USB mouse.  Device Info HW says the touchscreen driver is mtk-tpd, but I could not find them.
 
-Link to latest release
+[Link to latest release](/falk0069/twrp_score7_mt8167/releases)
 
 ## Credits to:
 
