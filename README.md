@@ -12,4 +12,9 @@ v1.0.0 does not have the touchscreen working.  You need a microUSB mouse or an O
 
 [twrpdtgen](https://github.com/twrpdtgen/twrpdtgen)
 
+[Team Win Recovery Project](https://github.com/TeamWin/Team-Win-Recovery-Project)
+
+[travis-ci.com](https://app.travis-ci.com/)
+
 [xdaforums](https://xdaforums.com/)
+
