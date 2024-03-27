@@ -42,7 +42,7 @@ before_script:
   #- aria2c -x16 -s8 --console-log-level=error --summary-interval=0 "${TWRP_SOURCE3}" || wget -q --show-progress --progress=bar:force "${TWRP_SOURCE3}"
   #- tar --zstd -xf MinimalOmniRecovery-twrp-*.*-norepo-2021*.tzst.aa --directory $HOME/twrp/ && rm MinimalOmniRecovery*.tzst.*
   #- tar -I zstd is an alternative way to use tzst files
-  - tar --zstd -xf MinimalOmniRecovery-twrp-*.*-norepo-2021*.tzst --directory $HOME/twrp/ && rm MinimalOmniRecovery*.tzst
+  - tar --zstd -xf MinimalOmniRecovery-twrp-*.*-norepo-202*.tzst --directory $HOME/twrp/ && rm MinimalOmniRecovery*.tzst
 script:
   # Replace your ${_USERNAME_}, ${_REPO_SLUG_}, ${_VENDORNAME_}, ${_CODENAME_}
   - cd $HOME/twrp/ && git clone https://github.com/falk0069/twrp_score7_mt8167.git device/alps/tb8167p3_bsp
