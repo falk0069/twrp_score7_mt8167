@@ -32,7 +32,8 @@ before_script:
   # If Building for Oreo-based Devices
   #- TWRP_SOURCE1="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.5.0_9-20210130/MinimalOmniRecovery-twrp-8.1-norepo-20210130.tzst.aa" && TWRP_SOURCE2="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.5.0_9-20210130/MinimalOmniRecovery-twrp-8.1-norepo-20210130.tzst.ab" && TWRP_SOURCE3="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.5.0_9-20210130/MinimalOmniRecovery-twrp-8.1-norepo-20210130.tzst.ac"
   #- TWRP_SOURCE1="https://www.falkzone.com/open/MinimalOmniRecovery-twrp-8.1-norepo-20210130.tzst"
-  - TWRP_SOURCE1="https://www.falkzone.com/open/MinimalOmniRecovery-twrp-8.1-norepo-20201108.tzst"
+  #- TWRP_SOURCE1="https://www.falkzone.com/open/MinimalOmniRecovery-twrp-8.1-norepo-20201108.tzst"
+  - TWRP_SOURCE1="https://www.falkzone.com/open/platform_manifest_twrp_omni_8.1_20240327.tzst"
   # If Building for Oreo-based Devices
   # - TWRP_SOURCE1="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20201103/MinimalOmniRecovery-twrp-9.0-norepo-20201103.tzst.aa" && TWRP_SOURCE2="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20201103/MinimalOmniRecovery-twrp-9.0-norepo-20201103.tzst.ab" && TWRP_SOURCE3="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20201103/MinimalOmniRecovery-twrp-9.0-norepo-20201103.tzst.ac" && TWRP_SOURCE4="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20201103/MinimalOmniRecovery-twrp-9.0-norepo-20201103.tzst.ad"
   # Then uncomment below lines to download & extract the multi-part files
@@ -42,7 +43,7 @@ before_script:
   #- aria2c -x16 -s8 --console-log-level=error --summary-interval=0 "${TWRP_SOURCE3}" || wget -q --show-progress --progress=bar:force "${TWRP_SOURCE3}"
   #- tar --zstd -xf MinimalOmniRecovery-twrp-*.*-norepo-2021*.tzst.aa --directory $HOME/twrp/ && rm MinimalOmniRecovery*.tzst.*
   #- tar -I zstd is an alternative way to use tzst files
-  - tar --zstd -xf MinimalOmniRecovery-twrp-*.*-norepo-202*.tzst --directory $HOME/twrp/ && rm MinimalOmniRecovery*.tzst
+  - tar --zstd -xf platform*.tzst --directory $HOME/twrp/ && rm platform*.tzst
 script:
   # Replace your ${_USERNAME_}, ${_REPO_SLUG_}, ${_VENDORNAME_}, ${_CODENAME_}
   - cd $HOME/twrp/ && git clone https://github.com/falk0069/twrp_score7_mt8167.git device/alps/tb8167p3_bsp
